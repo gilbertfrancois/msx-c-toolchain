@@ -25,8 +25,8 @@ RUN apt update && apt install -y \
 WORKDIR /builddir
 
 # Build sdcc compiler
-COPY docker/build_sdcc.sh /builddir
-COPY docker/3rdparty/${SDCC_ARCHIVE} /builddir
+COPY build_sdcc.sh /builddir
+COPY 3rdparty/${SDCC_ARCHIVE} /builddir
 RUN /builddir/build_sdcc.sh
 # Make sdcc compatible with Fusion-C
 RUN cd /usr/local/share/sdcc/lib/z80 && \
@@ -38,13 +38,13 @@ RUN cd /usr/local/share/sdcc/lib/z80 && \
     sdar -d z80.lib getchar.rel
 
 # Install hex2bin tool
-COPY docker/build_hex2bin.sh /builddir
-COPY docker/3rdparty/${HEX2BIN_ARCHIVE} /builddir
+COPY build_hex2bin.sh /builddir
+COPY 3rdparty/${HEX2BIN_ARCHIVE} /builddir
 RUN /builddir/build_hex2bin.sh
 
 # Install Fusion-C
-COPY docker/build_fusionc.sh /builddir
-COPY docker/3rdparty/${FUSIONC_ARCHIVE} /builddir
+COPY build_fusionc.sh /builddir
+COPY 3rdparty/${FUSIONC_ARCHIVE} /builddir
 RUN /builddir/build_fusionc.sh
 
 #==[ Development image ]=======================================================
