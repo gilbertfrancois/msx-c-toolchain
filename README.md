@@ -57,15 +57,12 @@ docker compose down
 
 ## Using the development environment
 
--  `docker compose up`: Start the docker container.
+- `docker compose up`: Start the docker container.
 - Use the editor that you like, place the source files in `/src`
--  `docker exec [container-id] [command]` : 
-  + `docker exec msx-c-toolchain-dev-1 make`': Run **make**
-
-  + `docker exec msx-c-toolchain-dev-1 make clean`': Run **make clean**
-
+- `docker exec [container-id] [command]` : 
+    + `docker exec msx-c-toolchain-dev-1 make`': Run **make**
+    + `docker exec msx-c-toolchain-dev-1 make clean`': Run **make clean**
 - `/dsk/[artefact]`: Test in openMSX on the host your compiled artefact (bin, rom, com)
-
 - `docker compose down`: Stop the docker container when you're done developing.
 
 
