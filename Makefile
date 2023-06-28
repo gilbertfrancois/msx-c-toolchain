@@ -30,7 +30,7 @@ ADDR_DATA := 0x0
 CCFLAGS := -mz80 --std-sdcc99 --max-allocs-per-node 50000 $\
     --no-std-crt0 --opt-code-size --disable-warning 196 $\
     --code-loc $(ADDR_CODE) --data-loc $(ADDR_DATA) $\
-    fusion.lib -L $(LIBDIR) $(ALL_INCLUDES)
+    -I $(HEADERDIR) fusion.lib -L $(LIBDIR) $(ALL_INCLUDES)
 
 
 all: $(COM_FILES)

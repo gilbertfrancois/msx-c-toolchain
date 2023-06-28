@@ -1,4 +1,4 @@
-#include "/usr/local/fusion-c/header/msx_fusion.h"
+#include <msx_fusion.h>
 #include <stdio.h>
 
 int add(int a, int b) {
@@ -11,3 +11,4 @@ void main(void) {
 	int value = add(a, b); 
 	printf("The sum of %d+%d=%d\r\n", a, b, value);
 }
+
