@@ -55,37 +55,41 @@ docker compose down
 
 ## Using the development environment
 
-- Start the docker container `docker compose up`
+-  `docker compose up`: Start the docker container.
 - Use the editor that you like, place the source files in `/src`
-- Run `docker exec msx-cc-dev-1 make` to build your code, where *msx-cc-dev-1* is the name of the docker container. (Or use `just`, as described in the section [Easy shortscuts](## Easy shortcuts)).
+-  `docker exec [container-id] [command]` : 
+  - `docker exec msx-c-toolchain-dev-1 make`': Run **make**
 
-- Test in openMSX your artefact (bin, rom, com)
+  - `docker exec msx-c-toolchain-dev-1 make clean`': Run **make clean**
 
-- When you're done with development, close the container with `docker compose down`.
+- `/dsk/[artefact]`: Test in openMSX on the host your compiled artefact (bin, rom, com)
+
+- `docker compose down`: Stop the docker container when you're done developing.
 
 
 
 ## Easy shortcuts
 
-I higly recommend installing [just](https://github.com/casey/just) and edit the file `Justfile` to your likings. As an example, instead of typing the full command `docker exec [docker_container_name] make`, you can shorten it to:
+I higly recommend installing [just](https://github.com/casey/just) and edit the file `Justfile` to your likings. As an example, instead of typing the full command `docker exec [container_id] [command]`, you can shorten it to:
 
 ```sh
-just make
+just clean   # make clean
+just make    # make
 ```
 
 And starting openMSX and testing your program would be like:
 
 ```sh
-just run
+just run 
 ```
 
 
 
 ## Random notes
 
-At the moment, Fusion-C 1.2 is compatible with SDCC up to version 4.0.0. Higher versions of SDCC are incompatible due to a breaking change in the bundled assembler. 
+​	At the moment, Fusion-C 1.2 is compatible with SDCC up to version 4.0.0. Higher versions of SDCC are incompatible due to a breaking change in the bundled assembler. 
 
-Patching sdcc's z80.ref library is needed, because functions like printf and putchar are not compatible with MSX. Fusion-C provides own implementations for these functions. The patch is implemented in *Dockerfile*.
+​	Patching sdcc's `z80.ref` library is needed, because functions like printf and putchar are not compatible with MSX. Fusion-C provides own implementations for these functions. The patch is implemented in *Dockerfile*.
 
 
 
