@@ -40,6 +40,7 @@ $(BUILDDIR)/%.ihx: $(SOURCEDIR)/%.c $(BUILDDIR)
 
 $(BUILDDIR)/%.com: $(BUILDDIR)/%.ihx $(BUILDDIR)
 	hex2bin -e com $< 
+	mkdir -p $(DEST)
 	cp $(BUILDDIR)/*.com $(DEST)
 
 $(BUILDDIR):
