@@ -1,4 +1,0 @@
-machine Canon_V-20
-ext Philips_NMS_1200 
-ext msxdos2
-diska dsk/ 

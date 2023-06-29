@@ -1,0 +1,3 @@
+machine Canon_V-20
+ext Philips_VY_0010
+diska dist/msxdos1
