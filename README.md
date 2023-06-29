@@ -25,17 +25,18 @@ Since all libraries are compiled from source, one gets native speed on all CPU a
 
 The location of the tools in the docker container are:
 
-| Tool             | Location                    |
-| ---------------- | --------------------------- |
-| sdcc             | /usr/local/bin/sdcc         |
-| sdasz80          | /usr/local/bin/sdas80       |
-| sdcc libraries   | /usr/local/share/sdcc       |
-| hex2bin          | /usr/local/bin/hex2bin      |
-| Fusion-C include | /usr/local/fusion-c/include |
-| Fusion-C library | /usr/local/fusion-c/lib     |
-| Fusion-C header  | /usr/local/fusion-c/header  |
+| Tool                          | Location                     | Compiler arguments<br/>Import statement in src file      |
+| ----------------------------- | ---------------------------- | -------------------------------------------------------- |
+| sdcc                          | /usr/local/bin/sdcc          |                                                          |
+| sdasz80                       | /usr/local/bin/sdas80        |                                                          |
+| sdcc libraries                | /usr/local/share/sdcc        |                                                          |
+| hex2bin                       | /usr/local/bin/hex2bin       |                                                          |
+| Fusion-C include              | /usr/local/fusion-c/include  | /usr/local/fusion-c/include/<filename.rel>               |
+| Fusion-C library              | /usr/local/fusion-c/lib      | -L /usr/local/fusion-c/lib -l fusion.lib                 |
+| Fusion-C header               | /usr/local/fusion-c/header   | -I /usr/local/fusion-c/header<br/>#import <msx_fusion.h> |
+| Fusion-C header (alternative) | [src folder]/fusion-c/header | #import "fusion-c/header/msx_fusion.h"                   |
 
-Use these locations in your Makefile. See the example in this project 
+Use these locations in your [Makefile](./Makefile). See the [example](./Makefile) in this repository.
 
 
 
@@ -56,7 +57,7 @@ The first time, it pulls the docker image from [Docker Hub](https://hub.docker.c
 docker compose down
 ```
 
-
+This repository does not provide a version of MSX-DOS. You have to copy it yourself in the folders `./dist/msxdos1` and/or .`/dist/msxdos2`.
 
 ## Using the development environment
 
@@ -82,7 +83,10 @@ just make    # make
 And starting openMSX and testing your program would be like:
 
 ```sh
-just run 
+just run1    # MSX1 computer with floppy drive
+just run2    # MSX2 computer with floppy drive
+
+# ... and any shortcut you create yourself in Justfile.
 ```
 
 
@@ -103,8 +107,12 @@ just run
 
 ## References
 
-- [Fusion-C library](https://www.ebsoft.fr/shop/en/19-fusion-c) MSX C library by Eric Boez.
+- [Fusion-C library](https://www.ebsoft.fr/shop/en/19-fusion-c),  MSX C library by Eric Boez.
 
 - [SDCC](https://sdcc.sourceforge.net), a retargettable, optimizing Standard C (ANSI C89, ISO C99, ISO C11) compiler suite.
 
 - [msx.org](https://www.msx.org) MSX Resource Center has great info and discussions about Fusion C and more...
+
+- [MSX DOS](https://download.file-hunter.com/OS/) at file hunter.
+
+- [MSXgl](https://github.com/aoineko-fr/MSXgl), Game library for MSX, written in C, by Aioneko.
