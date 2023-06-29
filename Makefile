@@ -4,7 +4,7 @@ HEX2BIN    := hex2bin
 
 SOURCEDIR  := src
 BUILDDIR   := build
-DEST       := dist/msxdos2 
+DEST       := dist/msxdos1 
  
 C_FILES    := $(wildcard $(SOURCEDIR)/*.c)
 ASM_FILES  := $(wildcard $(BUILDDIR)/*.s)
