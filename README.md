@@ -4,8 +4,7 @@ _Gilbert François Duivesteijn_
 
 ## About
 
-This repository provides an out-of-the-box consistent cross-platform MSX C-programming development environment for ~~all~~ most computers with ARM or Intel processors. It runs on macOS (Apple Silicon or Intel), Linux (ARM64 or x86_64) and Windows.
-
+This repository provides an out-of-the-box consistent cross-platform MSX C-programming development environment for ~~all~~ most computers with ARM or Intel processors. It runs on macOS (Apple Silicon or Intel), Linux (ARM64 or x86_64) and Windows 10/11 with WSL (ARM64 or x86_64).
 
 
 
