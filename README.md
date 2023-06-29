@@ -94,8 +94,6 @@ just run2    # MSX2 computer with floppy drive
 
 
 
-
-
 ## Random notes
 
 ​	At the moment, Fusion-C 1.2 is compatible with SDCC up to version 4.0.0. Higher versions of SDCC are incompatible due to a breaking change in the bundled assembler. 
@@ -104,7 +102,7 @@ just run2    # MSX2 computer with floppy drive
 
 ​	You can build the docker image yourself very easily. Go to the `./docker` folder inside this project and run `docker_xbuild_all.sh`.
 
-
+​	Docker is in transition of making the CLI commands more consistent, but on some Linux distributions, the old CLI commands are still available only. E.g. if `docker compose` (v2 version) does not work, try `docker-compose`, the v1 version. [reference](https://stackoverflow.com/questions/66514436/difference-between-docker-compose-and-docker-compose)
 
 
 
@@ -116,3 +114,4 @@ just run2    # MSX2 computer with floppy drive
 - [msx.org](https://www.msx.org) MSX Resource Center has great info and discussions about Fusion C and more...
 - [MSX DOS](https://download.file-hunter.com/OS/) at file hunter.
 - [MSX C toolchain docker images](https://hub.docker.com/r/gilbertfrancois/msx-c-toolchain/tags) at Docker Hub, by Gilbert François.
+
