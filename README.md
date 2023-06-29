@@ -4,7 +4,7 @@ _Gilbert François Duivesteijn_
 
 ## About
 
-This repository creates a out-of-the-box consistent cross-platform MSX C-programming development environment for all computers with ARM and Intel processors. It runs on macOS (Apple Silicon or Intel), Linux (ARM64 or x86_64) and Windows.
+This repository provides an out-of-the-box consistent cross-platform MSX C-programming development environment for ~~all~~ most 3computers with ARM and Intel processors. It runs on macOS (Apple Silicon or Intel), Linux (ARM64 or x86_64) and Windows.
 
 
 
@@ -16,10 +16,10 @@ It uses:
 
 - **Docker image**, based on Ubuntu 22.04
 - **SDCC 4.0.0**, compiled from source and *z80.ref* patched for Fusion-C.
-- **Hex2bin** tool, compiled from source and patched to make it work with gcc > 11.
+- **Hex2bin** tool, compiled from source and patched to make it work with GCC > 11.
 - **Fusion-C 1.2** library, compiled from source, compatible with SDCC 4.0.0
 
-Since all libraries are compiled from source, one gets native speed on all architectures. On your native host system, install [openMSX](http://openmsx.org) and the [editor](https://neovim.io) of your choice. You only compile the programs in the Docker container. You can edit the source files in the native host system in the editor that you prefer. Running and testing in openMSX happens also on your native operating system.
+Since all libraries are compiled from source, one gets native speed on all CPU architectures. On your native host system, install [openMSX](http://openmsx.org) and the [editor](https://neovim.io) of your choice. You only compile the programs in the Docker container. You can edit the source files in the native host system in the editor that you prefer. Running and testing in openMSX happens also on your native operating system.
 
 
 
@@ -44,10 +44,13 @@ Use these locations in your Makefile. See the example in this project
 Install [Docker](https://www.docker.com) on your system if you don't have that yet. Then open a terminal and run:
 
 ```sh
+git pull https://github.com/gilbertfrancois/msx-c-toolchain.git
+cd msx-c-toolchain
+
 docker compose up -d
 ```
 
-At first time, it builds the docker image and compiles SDCC, Hex2bin and Fusion-C. That will take some time. The next time, the startup will be super fast. When you want to close your docker container, run:
+The first time, it pulls the docker image from [Docker Hub](https://hub.docker.com/r/gilbertfrancois/msx-c-toolchain/tags) and selects your CPU architecture automatically. That might take some seconds, depending on your internet download speed. The next time, the startup will be super fast. When you want to close your docker container, run:
 
 ```sh
 docker compose down
@@ -84,11 +87,17 @@ just run
 
 
 
+
+
 ## Random notes
 
 ​	At the moment, Fusion-C 1.2 is compatible with SDCC up to version 4.0.0. Higher versions of SDCC are incompatible due to a breaking change in the bundled assembler. 
 
 ​	Patching sdcc's `z80.ref` library is needed, because functions like printf and putchar are not compatible with MSX. Fusion-C provides own implementations for these functions. The patch is implemented in *Dockerfile*.
+
+​	You can build the docker image yourself very easily. Go to the `./docker` folder inside this project and run `docker_xbuild_all.sh`.
+
+
 
 
 
