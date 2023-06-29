@@ -4,7 +4,7 @@ _Gilbert François Duivesteijn_
 
 ## About
 
-This repository provides an out-of-the-box consistent cross-platform MSX C-programming development environment for ~~all~~ most 3computers with ARM and Intel processors. It runs on macOS (Apple Silicon or Intel), Linux (ARM64 or x86_64) and Windows.
+This repository provides an out-of-the-box consistent cross-platform MSX C-programming development environment for ~~all~~ most computers with ARM or Intel processors. It runs on macOS (Apple Silicon or Intel), Linux (ARM64 or x86_64) and Windows.
 
 
 
@@ -22,7 +22,7 @@ It uses:
 - **Hex2bin** tool, compiled from source and patched to make it work with GCC > 11.
 - **Fusion-C 1.2** library, compiled from source, compatible with SDCC 4.0.0
 
-Since all libraries are compiled from source, one gets native speed on all CPU architectures. On your native host system, install [openMSX](http://openmsx.org) and the [editor](https://neovim.io) of your choice. You only compile the programs in the Docker container. You can edit the source files in the native host system in the editor that you prefer. Running and testing in openMSX happens also on your native operating system.
+All libraries are compiled from source, which allows to get native speed on all CPU architectures. On your native host system, install [openMSX](http://openmsx.org) and the [editor](https://neovim.io) of your choice. You only compile the programs in the Docker container. You can edit the source files in the native host system in the editor that you prefer. Running and testing in openMSX happens also on your native operating system.
 
 
 
@@ -111,11 +111,8 @@ just run2    # MSX2 computer with floppy drive
 ## References
 
 - [Fusion-C library](https://www.ebsoft.fr/shop/en/19-fusion-c),  MSX C library by Eric Boez.
-
-- [SDCC](https://sdcc.sourceforge.net), a retargettable, optimizing Standard C (ANSI C89, ISO C99, ISO C11) compiler suite.
-
-- [msx.org](https://www.msx.org) MSX Resource Center has great info and discussions about Fusion C and more...
-
-- [MSX DOS](https://download.file-hunter.com/OS/) at file hunter.
-
 - [MSXgl](https://github.com/aoineko-fr/MSXgl), Game library for MSX, written in C, by Aioneko.
+- [SDCC](https://sdcc.sourceforge.net), a retargettable, optimizing Standard C (ANSI C89, ISO C99, ISO C11) compiler suite.
+- [msx.org](https://www.msx.org) MSX Resource Center has great info and discussions about Fusion C and more...
+- [MSX DOS](https://download.file-hunter.com/OS/) at file hunter.
+- [MSX C toolchain docker images](https://hub.docker.com/r/gilbertfrancois/msx-c-toolchain/tags) at Docker Hub, by Gilbert François.
