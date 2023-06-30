@@ -1,8 +1,10 @@
+CONTAINER_NAME:=`basename ${PWD}` + "-dev-1"
+
 make:
-    docker container exec $(basename ${PWD})-dev-1 make
+    docker container exec {{CONTAINER_NAME}} make 
 
 clean:
-    docker container exec $(basename ${PWD})-dev-1 make clean
+    docker container exec {{CONTAINER_NAME}} make clean
 
 run1:
     /Applications/openMSX.app/Contents/MacOS/openmsx -machine Canon_V-20 -ext Philips_VY_0010 -diska dist/msxdos1
